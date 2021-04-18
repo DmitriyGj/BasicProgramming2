@@ -24,12 +24,12 @@ namespace func.brainfuck
 			}
 			vm.RegisterCommand('[', b =>
 			{
-				vm.InstructionPointer = vm.Memory[vm.MemoryPointer] == 0 ? 
+				vm.InstructionPointer = vm.Memory[vm.MemoryPointer] == 0 ?
 				cyclesBegin[vm.InstructionPointer] : vm.InstructionPointer;
 			});
 			vm.RegisterCommand(']', b =>
 			{
-				vm.InstructionPointer = vm.Memory[vm.MemoryPointer] != 0 ? 
+				vm.InstructionPointer = vm.Memory[vm.MemoryPointer] != 0 ?
 				cyclesEnd[vm.InstructionPointer] : vm.InstructionPointer;
 			});
 		}
