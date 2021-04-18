@@ -1,0 +1,10 @@
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\bin\Debug\readonly-bytes.exe.config
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\bin\Debug\readonly-bytes.exe
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\bin\Debug\readonly-bytes.pdb
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\bin\Debug\nunit.framework.dll
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\bin\Debug\nunitlite.dll
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\obj\Debug\hashes-readonly-bytes.csprojAssemblyReference.cache
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\obj\Debug\hashes-readonly-bytes.csproj.CoreCompileInputs.cache
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\obj\Debug\hashes-readonly-bytes.csproj.CopyComplete
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\obj\Debug\readonly-bytes.exe
+D:\прога\ulearn\прога 2 сем\hashes-readonly-bytes.csproj\obj\Debug\readonly-bytes.pdb

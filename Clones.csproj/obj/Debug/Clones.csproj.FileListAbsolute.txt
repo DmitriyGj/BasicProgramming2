@@ -1,0 +1,9 @@
+D:\прога\ulearn\Clones.csproj\bin\Debug\Clones.exe.config
+D:\прога\ulearn\Clones.csproj\bin\Debug\Clones.exe
+D:\прога\ulearn\Clones.csproj\bin\Debug\Clones.pdb
+D:\прога\ulearn\Clones.csproj\bin\Debug\nunit.framework.dll
+D:\прога\ulearn\Clones.csproj\obj\Debug\Clones.csprojAssemblyReference.cache
+D:\прога\ulearn\Clones.csproj\obj\Debug\Clones.csproj.CoreCompileInputs.cache
+D:\прога\ulearn\Clones.csproj\obj\Debug\Clones.csproj.CopyComplete
+D:\прога\ulearn\Clones.csproj\obj\Debug\Clones.exe
+D:\прога\ulearn\Clones.csproj\obj\Debug\Clones.pdb

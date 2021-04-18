@@ -1,0 +1,10 @@
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\bin\Debug\ghost.exe.config
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\bin\Debug\ghost.exe
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\bin\Debug\ghost.pdb
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\bin\Debug\nunit.framework.dll
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\bin\Debug\nunitlite.dll
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\obj\Debug\hashes-ghosts.csprojAssemblyReference.cache
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\obj\Debug\hashes-ghosts.csproj.CoreCompileInputs.cache
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\obj\Debug\hashes-ghosts.csproj.CopyComplete
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\obj\Debug\ghost.exe
+D:\прога\ulearn\прога 2 сем\hashes-ghosts.csproj\obj\Debug\ghost.pdb

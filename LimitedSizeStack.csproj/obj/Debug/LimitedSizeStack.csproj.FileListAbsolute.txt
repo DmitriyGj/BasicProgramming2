@@ -1,0 +1,22 @@
+D:\прога\ulearn\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe.config
+D:\прога\ulearn\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe
+D:\прога\ulearn\LimitedSizeStack.csproj\bin\Debug\TodoApplication.pdb
+D:\прога\ulearn\LimitedSizeStack.csproj\bin\Debug\nunit.framework.dll
+D:\прога\ulearn\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csprojAssemblyReference.cache
+D:\прога\ulearn\LimitedSizeStack.csproj\obj\Debug\TodoApplication.Properties.Resources.resources
+D:\прога\ulearn\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.GenerateResource.cache
+D:\прога\ulearn\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CoreCompileInputs.cache
+D:\прога\ulearn\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CopyComplete
+D:\прога\ulearn\LimitedSizeStack.csproj\obj\Debug\TodoApplication.exe
+D:\прога\ulearn\LimitedSizeStack.csproj\obj\Debug\TodoApplication.pdb
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csprojAssemblyReference.cache
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\TodoApplication.Properties.Resources.resources
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.GenerateResource.cache
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CoreCompileInputs.cache
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\TodoApplication.exe
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\TodoApplication.pdb
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe.config
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\bin\Debug\TodoApplication.pdb
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\bin\Debug\nunit.framework.dll
+D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CopyComplete
