@@ -7,6 +7,7 @@ namespace Clones
 	{
 		static void Main(string[] args)
 		{
+			Console.Write("ssss");
 			var n = (Console.ReadLine() ?? "")
 				.Split().Select(int.Parse).First();
 			var clones = new CloneVersionSystem();
