@@ -1,28 +1,21 @@
-  using System;
- 
+using System;
+
 namespace func_rocket
 {
     public class ControlTask
-    {
-        public static double TotalAngle;
-
+    { 
         public static Turn ControlRocket(Rocket rocket, Vector target)
         {
-            TotalAngle = FindScalarMultiply(rocket.Velocity,target);
-            while(TotalAngle!=0)
-            {
-                if (TotalAngle < 0)
-                    return Turn.Right;
-                else if (TotalAngle > 0)
-                    return Turn.Left;
-                else
-                    return Turn.None;
-            }
-            return Turn.None;
-        }
-        public static double FindScalarMultiply(Vector a, Vector b)
-        {
-            return a.X * b.X + a.Y * b.Y / (Math.Sqrt(a.X * a.X + a.Y * a.Y) * Math.Sqrt(b.X * b.X + b.Y * b.Y));
+            var distanceVector = target - rocket.Location;
+            var flagAngle = 0.0;
+            if (Math.Abs(distanceVector.Angle - rocket.Direction) < 0.5 ||
+                 Math.Abs(distanceVector.Angle - rocket.Velocity.Angle) < 0.5)
+                flagAngle = distanceVector.Angle - (rocket.Direction + rocket.Velocity.Angle) / 2;
+            else
+                flagAngle = distanceVector.Angle - rocket.Direction;
+            if (flagAngle < 0)
+                return Turn.Left;
+            return flagAngle > 0 ? Turn.Right : Turn.None;
         }
     }
 }
