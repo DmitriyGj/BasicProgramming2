@@ -1,0 +1,10 @@
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\bin\Debug\slides.txt
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\bin\Debug\visits.txt
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\bin\Debug\linq-slideviews.exe
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\bin\Debug\linq-slideviews.pdb
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\bin\Debug\nunit.framework.dll
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\obj\Debug\linq-slideviews.csprojAssemblyReference.cache
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\obj\Debug\linq-slideviews.csproj.CoreCompileInputs.cache
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\obj\Debug\linq-slideviews.csproj.CopyComplete
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\obj\Debug\linq-slideviews.exe
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\linq-slideviews.csproj\obj\Debug\linq-slideviews.pdb
