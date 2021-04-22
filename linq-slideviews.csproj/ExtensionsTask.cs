@@ -6,27 +6,26 @@ namespace linq_slideviews
 {
 	public static class ExtensionsTask
 	{
-		/// <summary>
-		/// Медиана списка из нечетного количества элементов — это серединный элемент списка после сортировки.
-		/// Медиана списка из четного количества элементов — это среднее арифметическое 
-        /// двух серединных элементов списка после сортировки.
-		/// </summary>
-		/// <exception cref="InvalidOperationException">Если последовательность не содержит элементов</exception>
 		public static double Median(this IEnumerable<double> items)
 		{
-			var count = items.Count();
+			var parsedItems =items.OrderBy(x=>x).ToArray();
+			var count = parsedItems.Length;
 			if(count != 0)
-				return count % 2 == 0 ? items.Average():items.OrderBy(x=>x).ToArray()[count/2+1] ;
+				return count % 2 == 0 ? parsedItems.Average():parsedItems.ToArray()[count/2] ;
 			throw new InvalidOperationException();
 		}
 
-		/// <returns>
-		/// Возвращает последовательность, состоящую из пар соседних элементов.
-		/// Например, по последовательности {1,2,3} метод должен вернуть две пары: (1,2) и (2,3).
-		/// </returns>
 		public static IEnumerable<Tuple<T, T>> Bigrams<T>(this IEnumerable<T> items)
 		{
-			throw new NotImplementedException();
+			var parsedItems = items.GetEnumerator();
+			parsedItems.MoveNext();
+			var previous = parsedItems.Current;
+			while (parsedItems.MoveNext())
+			{
+				yield return new Tuple<T, T>(previous,parsedItems.Current);
+				previous = parsedItems.Current;
+			}
+				/*items.SelectMany((x,count) => items.Skip(count+1).Select(y=> Tuple.Create(x,y));*/
 		}
 	}
 }

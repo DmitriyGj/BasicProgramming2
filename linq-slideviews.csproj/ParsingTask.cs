@@ -11,8 +11,26 @@ namespace linq_slideviews
 		/// <remarks>Метод должен пропускать некорректные строки, игнорируя их</remarks>
 		public static IDictionary<int, SlideRecord> ParseSlideRecords(IEnumerable<string> lines)
 		{
-			throw new NotImplementedException();
+			return lines
+				.Skip(1)
+				.Select(line => line.Split(';'))
+				.ToArray()
+				.Select(mbslide=>ToSlideRecord(mbslide))
+				.Where(slide => slide != null)
+				.ToDictionary(slide => slide.SlideId);
 		}
+		public static SlideRecord ToSlideRecord(string[] mbslide)
+		{
+			int id;
+			SlideType slideType;
+			if (mbslide.Length == 3
+			&& mbslide[2] != string.Empty
+			&& int.TryParse(mbslide[0], out id)
+			&& Enum.TryParse(mbslide[1],true, out slideType))
+				return new SlideRecord(id, slideType, mbslide[2]);
+
+			return null;
+        }
 
 		/// <param name="lines">все строки файла, которые нужно распарсить. Первая строка — заголовочная.</param>
 		/// <param name="slides">Словарь информации о слайдах по идентификатору слайда. 

@@ -23,7 +23,7 @@ namespace func_rocket
 			   var distanceToAnomaly = (wayToTarget - v).Length;
 			   return (wayToTarget - v).Normalize() * 300 * distanceToAnomaly / (distanceToAnomaly * distanceToAnomaly + 1);
 		};
-
+		
 		public static IEnumerable<Level> CreateLevels()
 		{
 			yield return CreateLevel("Zero",new Vector(0,0), (size, v) => Vector.Zero);
@@ -31,8 +31,7 @@ namespace func_rocket
 			yield return CreateLevel("Up",new Vector(100,300),(size,v)=> new Vector(0,-300/(size.Height -v.Y +300)));
 			yield return CreateLevel("WhiteHole",new Vector(0, 0), (size, v) => calculateWhiteHole(v));
 			yield return CreateLevel("BlackHole", new Vector(0, 0),(size, v) => calculateBlackHole(v));
-			yield return CreateLevel("BlackAndWhite",new Vector(0,0),(size,v)=> (calculateWhiteHole(v)+calculateBlackHole(v))/2
-				);
+			yield return CreateLevel("BlackAndWhite",new Vector(0,0),(size,v)=> (calculateWhiteHole(v)+calculateBlackHole(v))/2);
 		}
 	}
 }
