@@ -61,6 +61,7 @@
     <Compile Include="BrainfuckLoopCommandsTests.cs" />
     <Compile Include="BrainfuckBasicCommandsTests.cs" />
     <Compile Include="Brainfuck.cs" />
+    <Compile Include="VmBuilder.cs" />
     <Compile Include="IVirtualMachine.cs" />
     <Compile Include="VirtualMachineTests.cs" />
     <Compile Include="Program.cs" />

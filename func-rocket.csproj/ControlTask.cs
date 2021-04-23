@@ -3,7 +3,6 @@ using System;
 namespace func_rocket
 {
 <<<<<<< HEAD
-    public class ControlTask
     { 
         public static Turn ControlRocket(Rocket rocket, Vector target)
         {

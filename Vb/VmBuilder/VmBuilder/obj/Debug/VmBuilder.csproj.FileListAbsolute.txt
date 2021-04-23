@@ -5,3 +5,10 @@ D:\Учеба\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.cspro
 D:\Учеба\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.csproj.CoreCompileInputs.cache
 D:\Учеба\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.exe
 D:\Учеба\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.pdb
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\Vb\VmBuilder\VmBuilder\bin\Debug\VmBuilder.exe.config
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\Vb\VmBuilder\VmBuilder\bin\Debug\VmBuilder.exe
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\Vb\VmBuilder\VmBuilder\bin\Debug\VmBuilder.pdb
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.csprojAssemblyReference.cache
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.csproj.CoreCompileInputs.cache
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.exe
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\Vb\VmBuilder\VmBuilder\obj\Debug\VmBuilder.pdb
