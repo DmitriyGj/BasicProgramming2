@@ -10,6 +10,7 @@ namespace TodoApplication
         private Button buttonRemove;
         private Button buttonUndo;
         private Button buttonAdd;
+        private Button buttonMoveUp;
         private TextBox textBox;
 
         public TasksForm()
@@ -18,7 +19,6 @@ namespace TodoApplication
             model.AddItem("Составить список дел на сегодня");
             model.AddItem("Домашка по C#");
             model.AddItem("Решить задачу 1519");
-
             this.Text = "Список дел на сегодня";
             this.Font = new Font("Serif", 11);
             this.Size = new Size(400, 300);
@@ -41,6 +41,14 @@ namespace TodoApplication
                 Text = "Добавить",
                 Dock = DockStyle.Fill
             };
+
+            buttonMoveUp = new Button
+            {
+                Text = "Повысить",
+                Dock = DockStyle.Fill,
+                Enabled = false
+            };
+
             buttonUndo = new Button
             {
                 Text = "Отменить",
@@ -86,8 +94,10 @@ namespace TodoApplication
             };
             interTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
             interTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
-            interTable.Controls.Add(buttonUndo, 1, 0);
-            interTable.Controls.Add(buttonRemove, 0, 0);
+            interTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50));
+            interTable.Controls.Add(buttonUndo, 2, 0);
+            interTable.Controls.Add(buttonRemove, 1, 0);
+            interTable.Controls.Add(buttonMoveUp, 0, 0);
             table.Controls.Add(interTable, 1, 2);
             table.LayoutSettings.SetColumnSpan(interTable, 2);
 
@@ -138,11 +148,26 @@ namespace TodoApplication
                 }
             };
 
+            buttonMoveUp.Click += (sender, args) =>
+            {
+                int index = TasksList.SelectedIndex;
+
+                if(index > 0)
+                {
+                    model.MoveUp(index);
+                    TasksList.Items.Clear();
+                    TasksList.Items.AddRange(model.Items.ToArray());
+                    TasksList.SelectedIndex = index-1;
+                }
+            };
+
             TasksList.SelectedIndexChanged += (sender, args) =>
             {
                 buttonRemove.Enabled = TasksList.SelectedIndex != -1;
+                buttonMoveUp.Enabled = TasksList.SelectedIndex > 0;
             };
         }
+
 
         private void AddTask()
         {

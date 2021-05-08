@@ -31,6 +31,13 @@ namespace TodoApplication
             command.Execute(Items);
         }
 
+        public void MoveUp(int index)
+        {
+            var command = new MoveUp<TItem>(index);
+            Chanages.Push(command);
+            command.Execute(Items);
+        }
+
         public bool CanUndo()
         {
             return Chanages.Count > 0;
@@ -47,6 +54,32 @@ namespace TodoApplication
     {
         void Undo(List<TItem> items);
         void Execute(List<TItem> items);
+    }
+
+    class MoveUp<TItem> : ICommand<TItem>
+    {
+        private int currentIndex;
+        private int previousIndex;
+        private TItem trans;
+
+        public MoveUp(int index)
+        {
+            this.currentIndex = index;
+        }
+
+        public void Execute(List<TItem> items)
+        {
+            previousIndex = currentIndex - 1;
+            trans = items[previousIndex];
+            items[previousIndex] = items[currentIndex];
+            items[currentIndex] = trans;
+        }
+
+        public void Undo(List<TItem> items)
+        {
+            items[currentIndex] = items[previousIndex];
+            items[previousIndex] = trans;
+        }
     }
 
     class Add<TItem> : ICommand<TItem>
