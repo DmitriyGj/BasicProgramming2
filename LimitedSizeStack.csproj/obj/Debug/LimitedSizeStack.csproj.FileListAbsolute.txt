@@ -20,6 +20,7 @@ D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\bin\Debug\TodoA
 D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\bin\Debug\TodoApplication.pdb
 D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\bin\Debug\nunit.framework.dll
 D:\прога\ulearn\прога 2 сем\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CopyComplete
+<<<<<<< HEAD
 D:\Учеба\BasicProgramming2\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe.config
 D:\Учеба\BasicProgramming2\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe
 D:\Учеба\BasicProgramming2\LimitedSizeStack.csproj\bin\Debug\TodoApplication.pdb
@@ -31,3 +32,16 @@ D:\Учеба\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\LimitedSizeSta
 D:\Учеба\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CopyComplete
 D:\Учеба\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\TodoApplication.exe
 D:\Учеба\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\TodoApplication.pdb
+=======
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe.config
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\bin\Debug\TodoApplication.exe
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\bin\Debug\TodoApplication.pdb
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\bin\Debug\nunit.framework.dll
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csprojAssemblyReference.cache
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\TodoApplication.Properties.Resources.resources
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.GenerateResource.cache
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CoreCompileInputs.cache
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\LimitedSizeStack.csproj.CopyComplete
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\TodoApplication.exe
+D:\Учеба\прога\ulearn\пис\BasicProgramming2\LimitedSizeStack.csproj\obj\Debug\TodoApplication.pdb
+>>>>>>> 9313dbefd73ce0708818180828c370ae1b07a8c5
