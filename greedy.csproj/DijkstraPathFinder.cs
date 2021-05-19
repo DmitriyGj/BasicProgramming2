@@ -13,7 +13,15 @@ namespace Greedy
         public IEnumerable<PathWithCost> GetPathsByDijkstra(State state, Point start,
             IEnumerable<Point> targets)
         {
-            throw new NotImplementedException();
+			foreach (var chest in targets)
+			{
+                
+                while(true)
+                {
+                    var weight = new Dictionary<Point, int>() { { start, 0 } };
+                    var bestPrice = int.MaxValue;
+                }
+			}
         }
     }
 }
