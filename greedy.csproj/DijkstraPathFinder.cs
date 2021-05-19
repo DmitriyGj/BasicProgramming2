@@ -31,7 +31,7 @@ namespace Greedy
                 var maxPrice = int.MaxValue;
 
                 foreach (var path in paths)
-                    if (maxPrice > path.Value.Cost)
+                    if (path.Value.Cost < maxPrice)
                     {
                         open = path.Key;
                         maxPrice = path.Value.Cost;
