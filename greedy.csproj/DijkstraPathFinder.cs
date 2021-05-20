@@ -10,47 +10,43 @@ namespace Greedy
 {
     public class DijkstraPathFinder
     {
-        public IEnumerable<PathWithCost> GetPathsByDijkstra(State state, Point start,
-                IEnumerable<Point> targets)
+        public IEnumerable<PathWithCost> GetPathsByDijkstra(State state, Point start, IEnumerable<Point> targets)
         {
-            var paths = new Dictionary<Point, PathWithCost> { {start,new PathWithCost(0,Point.Empty) } };
-            var visited = new bool[state.MapWidth, state.MapHeight];
-            while(true)
+            var visited = new List<Point>();
+            var waitVisit = new Dictionary<Point, PathWithCost>() { {start,new PathWithCost(0,start) } };
+
+            while (waitVisit.Count > 0)
             {
-                var currentPoint = Point.Empty;
-                var minCost = int.MaxValue;
-
-                foreach(var path in paths)
-                    if(!visited[path.Key.X,path.Key.Y] && path.Value.Cost < minCost)
-                    {
-                        currentPoint = path.Key;
-                        minCost = path.Value.Cost;
-                    }
-
-                if (currentPoint == Point.Empty) break;
-                if (targets.Contains(currentPoint)) yield return GetPath(paths,currentPoint);
-                
-                for(int dx =-1;dx != 2; dx++)
-                    for(int dy = -1; dy != 2; dy++)
-                    {
-                        if(Math.Abs(dx+dy)==1)
-                        {
-                            var nearPoint = new Point(currentPoint.X + dx, currentPoint.Y + dy);
-                            if (!state.InsideMap(nearPoint) || state.IsWallAt(nearPoint))
-                                continue;
-                            var currentPath =
-                                new PathWithCost(paths[currentPoint].Cost + state.CellCost[nearPoint.X, nearPoint.Y],
-                                new List<Point>(paths[currentPoint].Path) { currentPoint }.ToArray());
-                            if (!paths.ContainsKey(nearPoint) || paths[nearPoint].Cost > currentPath.Cost)
-                                paths[nearPoint] = currentPath;
-                        }
-                    }
-                visited[currentPoint.X, currentPoint.Y] = true;
+                var currentData = waitVisit.FirstOrDefault();
+                if (targets.Contains(currentData.Key))
+                    yield return currentData.Value;
+               
+                foreach (var point in currentData.Key.GetNearPoints())
+                {
+                    if (!state.InsideMap(point) || state.IsWallAt(point))
+                        continue;
+                    var currentWeight = currentData.Value.Cost + state.CellCost[point.X, point.Y];
+                    var potentialPath = currentData.Value.Path.Union(new [] { point }).ToArray();
+                    if (!waitVisit.ContainsKey(point) || waitVisit[point].Cost > currentWeight)
+                        waitVisit[point] = new PathWithCost(currentWeight,potentialPath) ;
+                }
+                waitVisit.Remove(currentData.Key);
+                visited.Add(currentData.Key);
+                waitVisit = waitVisit.OrderBy(s => s.Value.Cost)
+                    .Where(s => !visited.Contains(s.Key))
+                    .ToDictionary(s => s.Key, s => s.Value);
             }
         }
-        public static PathWithCost GetPath(Dictionary<Point,PathWithCost> paths, Point end)
+    }
+
+    public static class PointExtensions
+    {
+        public static IEnumerable<Point> GetNearPoints(this Point point)
         {
-            return new PathWithCost(paths[end].Cost, new List<Point>(paths[end].Path).ToArray());
+            for (int dx = -1; dx <= 1; dx++)
+                for (int dy = -1; dy <= 1; dy++)
+                    if (Math.Abs(dx + dy) == 1)
+                        yield return new Point(point.X + dx, point.Y + dy);
         }
     }
 }
