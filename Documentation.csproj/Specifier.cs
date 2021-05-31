@@ -16,7 +16,8 @@ namespace Documentation
                 .Select(method=> method.Name).ToArray();
 
         public string GetApiMethodDescription(string methodName)=>
-                typeof(T).GetMethod(methodName)?.GetCustomAttributes().OfType<ApiDescriptionAttribute>().FirstOrDefault()?.Description ;
+                typeof(T).GetMethod(methodName)?
+                .GetCustomAttributes().OfType<ApiDescriptionAttribute>().FirstOrDefault()?.Description ;
 
         public string[] GetApiMethodParamNames(string methodName)=>
                 typeof(T).GetMethod(methodName).GetParameters().Select(param => param.Name).ToArray();
@@ -31,10 +32,10 @@ namespace Documentation
 
         public ApiParamDescription GetApiMethodParamFullDescription(string methodName, string paramName)
         {
-
             var res = new ApiParamDescription();
             var method = typeof(T).GetMethod(methodName);
-            var atributes = method?.GetParameters().Where(param => param.Name == paramName).FirstOrDefault()?.GetCustomAttributes();
+            var atributes = method?.GetParameters()?
+                            .Where(param => param.Name == paramName).FirstOrDefault()?.GetCustomAttributes();
 
             if (method is null || atributes is null)
             {
@@ -45,17 +46,17 @@ namespace Documentation
             res.ParamDescription = new CommonDescription(paramName, GetApiMethodParamDescription(methodName, paramName)); 
             res.MinValue = atributes?.OfType<ApiIntValidationAttribute>().FirstOrDefault()?.MinValue;
             res.MaxValue = atributes?.OfType<ApiIntValidationAttribute>().FirstOrDefault()?.MaxValue;
-            res.Required = atributes.OfType<ApiRequiredAttribute>().FirstOrDefault().Required;
+            res.Required = atributes?.OfType<ApiRequiredAttribute>().FirstOrDefault()?.Required ?? false;
             return res;
         }
 
         public ApiMethodDescription GetApiMethodFullDescription(string methodName)
         {
             var method = typeof(T).GetMethod(methodName);
-            if (method.GetCustomAttribute(typeof(ApiMethodAttribute)) == null)
+            if (method.GetCustomAttributes().OfType<ApiMethodAttribute>().FirstOrDefault() is null)
                 return null;
-            var parameter = method?.GetParameters()
-                .Select(param => GetApiMethodParamFullDescription(methodName, param.Name)).ToArray();
+            var parameters = method?.GetParameters()?
+                             .Select(param => GetApiMethodParamFullDescription(methodName, param.Name))?.ToArray();
             var description = new CommonDescription
             {
                 Name = methodName,
@@ -66,13 +67,23 @@ namespace Documentation
             var res = new ApiMethodDescription
             {
                 MethodDescription = description,
-                ParamDescriptions = parameter,
-                ReturnDescription = new ApiParamDescription
-                {
-                    MinValue = (method?.ReturnParameter.GetCustomAttribute(typeof(ApiIntValidationAttribute)) as ApiIntValidationAttribute).MinValue,
-                    MaxValue = (method?.ReturnParameter.GetCustomAttribute(typeof(ApiIntValidationAttribute)) as ApiIntValidationAttribute).MaxValue,
-                    Required = (method?.ReturnParameter.GetCustomAttribute(typeof(ApiRequiredAttribute)) as ApiRequiredAttribute).Required 
-                }
+                ParamDescriptions = parameters,
+                ReturnDescription = GetReturnDescription(method)
+            };
+            return res;
+        }
+
+        public static ApiParamDescription GetReturnDescription(MethodInfo method)
+        {
+            var invalidAttribute = method?.ReturnParameter.GetCustomAttributes().OfType<ApiIntValidationAttribute>()?.FirstOrDefault();
+            var reqAttribute = method?.ReturnParameter.GetCustomAttributes().OfType<ApiRequiredAttribute>()?.FirstOrDefault();
+            if (reqAttribute is null && invalidAttribute is null)
+                return null;
+            var res = new ApiParamDescription
+            {
+                MaxValue = invalidAttribute?.MaxValue,
+                MinValue = invalidAttribute?.MinValue,
+                Required = reqAttribute?.Required ?? false
             };
             return res;
         }
