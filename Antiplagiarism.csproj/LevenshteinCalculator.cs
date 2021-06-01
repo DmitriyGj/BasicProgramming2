@@ -21,24 +21,17 @@ namespace Antiplagiarism
 
         public double GetDocDistance(DocumentTokens first, DocumentTokens second)
         {
-            var length = new[] { first.Count + 1, second.Count + 1 };
-            var opt = new double[length[0], length[1]];
-            for (int i = 0; i != length[0]; i++) 
+            var length = new Tuple<int,int>(first.Count+1,second.Count+1);
+            var opt = new double[length.Item1, length.Item2];
+            for (int i = 0; i != length.Item1; i++) 
                 opt[i, 0] = i;
-            for (int i = 0; i != length[1]; i++) 
+            for (int i = 0; i != length.Item2; i++) 
                 opt[0, i] = i;
-            for (int i = 1; i <= first.Count; i++)
-                for(int j = 1; j <= second.Count; j++)
+            for (int i = 1; i != length.Item1; i++)
+                for(int j = 1; j != length.Item2; j++)
                 {
                     var distance = TokenDistanceCalculator.GetTokenDistance(first[i - 1], second[j - 1]);
-                    if (distance == 0)
-                        opt[i, j] = opt[i - 1, j - 1];
-                    else
-                        opt[i, j] = new[]{
-                            opt[i , j - 1]+1,
-                            opt[i - 1, j ]+1,
-                            opt[i - 1, j - 1 ] + distance
-                        }.Min();
+                    opt[i, j] = new[]{opt[i , j - 1]+1, opt[i - 1, j ]+1,  opt[i - 1, j - 1 ] + distance}.Min();
                 }
             return opt[first.Count, second.Count];
         }
