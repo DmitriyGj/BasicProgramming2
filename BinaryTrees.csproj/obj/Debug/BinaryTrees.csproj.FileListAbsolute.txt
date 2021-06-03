@@ -1,0 +1,16 @@
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\obj\Debug\BinaryTrees.csprojAssemblyReference.cache
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\obj\Debug\BinaryTrees.csproj.CoreCompileInputs.cache
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\NUnit3.TestAdapter.dll
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\NUnit3.TestAdapter.pdb
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\nunit.engine.dll
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\nunit.engine.api.dll
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\nunit.engine.core.dll
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\BinaryTrees.exe.config
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\BinaryTrees.exe
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\BinaryTrees.pdb
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\nunit.framework.dll
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\nunitlite.dll
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\bin\Debug\nunit.framework.xml
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\obj\Debug\BinaryTrees.csproj.CopyComplete
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\obj\Debug\BinaryTrees.exe
+D:\Учеба\BasicProgramming2\BinaryTrees.csproj\obj\Debug\BinaryTrees.pdb
