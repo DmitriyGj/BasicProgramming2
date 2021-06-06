@@ -10,7 +10,7 @@ namespace Greedy
 		[STAThread]
 		public static void Main(string[] args)
 		{
-			var initialStateName = args.Any() ? args[0] : "not_greedy_no_walls_3";
+			var initialStateName = args.Any() ? args[0] : "not_greedy_no_walls_1";
 
 			Application.Run(new GreedyWindow(initialStateName));
 		}
