@@ -4,13 +4,7 @@
     <projectFile>Tickets.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b4a67a22-f749-47fd-9d3a-74ded8b5257c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/TicketsTask.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TicketsTask.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/Tickets.exe" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/Tickets.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/Debug/Tickets.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/bin/Debug/Tickets.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Tickets.exe" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Tickets.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/obj/Debug/Tickets.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/obj/Debug/Tickets.pdb" afterDir="false" />
-    </list>
+    <list default="true" id="b4a67a22-f749-47fd-9d3a-74ded8b5257c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,6 +38,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.environmentSetup" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager" selected=".NET Project.Tickets">
@@ -75,13 +70,15 @@
       <option name="presentableId" value="Default" />
       <updated>1623172012998</updated>
       <workItem from="1623172018499" duration="6843000" />
+      <workItem from="1623208926240" duration="615000" />
+      <workItem from="1623209575352" duration="321000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
