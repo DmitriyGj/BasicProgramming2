@@ -1,0 +1,10 @@
+D:\Учеба\BasicProgramming2\DiskTree.csproj\bin\Debug\DiskTree.exe.config
+D:\Учеба\BasicProgramming2\DiskTree.csproj\bin\Debug\DiskTree.exe
+D:\Учеба\BasicProgramming2\DiskTree.csproj\bin\Debug\DiskTree.pdb
+D:\Учеба\BasicProgramming2\DiskTree.csproj\bin\Debug\nunit.framework.dll
+D:\Учеба\BasicProgramming2\DiskTree.csproj\bin\Debug\nunitlite.dll
+D:\Учеба\BasicProgramming2\DiskTree.csproj\obj\Debug\DiskTree.csprojAssemblyReference.cache
+D:\Учеба\BasicProgramming2\DiskTree.csproj\obj\Debug\DiskTree.csproj.CoreCompileInputs.cache
+D:\Учеба\BasicProgramming2\DiskTree.csproj\obj\Debug\DiskTree.csproj.CopyComplete
+D:\Учеба\BasicProgramming2\DiskTree.csproj\obj\Debug\DiskTree.exe
+D:\Учеба\BasicProgramming2\DiskTree.csproj\obj\Debug\DiskTree.pdb
