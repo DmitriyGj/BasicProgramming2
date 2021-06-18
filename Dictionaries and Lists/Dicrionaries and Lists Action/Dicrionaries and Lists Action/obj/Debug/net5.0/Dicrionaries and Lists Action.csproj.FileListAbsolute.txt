@@ -1,0 +1,16 @@
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\bin\Debug\net5.0\Dicrionaries and Lists Action.exe
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\bin\Debug\net5.0\Dicrionaries and Lists Action.deps.json
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\bin\Debug\net5.0\Dicrionaries and Lists Action.runtimeconfig.json
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\bin\Debug\net5.0\Dicrionaries and Lists Action.runtimeconfig.dev.json
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\bin\Debug\net5.0\Dicrionaries and Lists Action.dll
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\bin\Debug\net5.0\ref\Dicrionaries and Lists Action.dll
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\bin\Debug\net5.0\Dicrionaries and Lists Action.pdb
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.csproj.AssemblyReference.cache
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.GeneratedMSBuildEditorConfig.editorconfig
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.AssemblyInfoInputs.cache
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.AssemblyInfo.cs
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.csproj.CoreCompileInputs.cache
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.dll
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\ref\Dicrionaries and Lists Action.dll
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.pdb
+D:\Учеба\BasicProgramming2\DIctionaries and Lists\Dicrionaries and Lists Action\Dicrionaries and Lists Action\obj\Debug\net5.0\Dicrionaries and Lists Action.genruntimeconfig.cache

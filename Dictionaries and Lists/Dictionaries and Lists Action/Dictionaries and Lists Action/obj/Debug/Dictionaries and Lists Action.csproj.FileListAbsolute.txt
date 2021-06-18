@@ -1,0 +1,7 @@
+D:\Учеба\BasicProgramming2\Dictionaries and Lists\Dictionaries and Lists Action\Dictionaries and Lists Action\bin\Debug\Dictionaries and Lists Action.exe.config
+D:\Учеба\BasicProgramming2\Dictionaries and Lists\Dictionaries and Lists Action\Dictionaries and Lists Action\bin\Debug\Dictionaries and Lists Action.exe
+D:\Учеба\BasicProgramming2\Dictionaries and Lists\Dictionaries and Lists Action\Dictionaries and Lists Action\bin\Debug\Dictionaries and Lists Action.pdb
+D:\Учеба\BasicProgramming2\Dictionaries and Lists\Dictionaries and Lists Action\Dictionaries and Lists Action\obj\Debug\Dictionaries and Lists Action.csprojAssemblyReference.cache
+D:\Учеба\BasicProgramming2\Dictionaries and Lists\Dictionaries and Lists Action\Dictionaries and Lists Action\obj\Debug\Dictionaries and Lists Action.csproj.CoreCompileInputs.cache
+D:\Учеба\BasicProgramming2\Dictionaries and Lists\Dictionaries and Lists Action\Dictionaries and Lists Action\obj\Debug\Dictionaries and Lists Action.exe
+D:\Учеба\BasicProgramming2\Dictionaries and Lists\Dictionaries and Lists Action\Dictionaries and Lists Action\obj\Debug\Dictionaries and Lists Action.pdb
