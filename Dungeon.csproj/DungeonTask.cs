@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Forms;
 
 namespace Dungeon
 {
@@ -13,40 +13,34 @@ namespace Dungeon
 	{
 		public static MoveDirection[] FindShortestPath(Map map)
 		{
-			var shortestFromsStartToExit = BfsTask.FindPaths(map, map.InitialPosition, new[] { map.Exit }).FirstOrDefault();
-			if (shortestFromsStartToExit == null)
-				return new MoveDirection[0];
-
 			var pathToExit = BfsTask.FindPaths(map, map.Exit, map.Chests);
 			var pathFromStart = BfsTask.FindPaths(map, map.InitialPosition, map.Chests);
-			var resultWays = from pte in pathToExit
-							 join pfs in pathFromStart on pte.Value equals pfs.Value
-							 select Tuple.Create(pte, pfs);
-			if (resultWays.Count() > 0)
+			var resultWays = pathFromStart.SelectMany(pfs =>
+				pathToExit.Where(pte => pte.Value == pfs.Value).Select(pte => pte.Reverse().Concat(pfs)));
+			var result = resultWays.OrderBy(way => way.Count()).FirstOrDefault();
+			if (result is null)
 			{
-				var result = resultWays.OrderBy(way => way.Item1.Length + way.Item2.Length).FirstOrDefault();
-				return result.Item1.Reverse().Concat(result.Item2).ToArray().ToMoveDirections();
+				var fromstartToExit = BfsTask.FindPaths(map, map.InitialPosition, new[] { map.Exit }).FirstOrDefault();
+				return fromstartToExit is null ? new MoveDirection[0] : fromstartToExit.ToArray().ToMoveDirections();
 			}
-			return shortestFromsStartToExit.ToArray().ToMoveDirections();
+			return result.ToArray().ToMoveDirections();
 		}
 	}
 
-	public static class Extensions
+	static class PointExtensions
 	{
 		public static MoveDirection[] ToMoveDirections(this Point[] points)
 		{
-			var resultList = new List<MoveDirection>();
-			if (points == null)
-				return new MoveDirection[0];
+			var directions = new List<MoveDirection>();
 
 			for (var i = points.Length - 1; i > 0; i--)
 			{
-				if (points[i].X - points[i - 1].X == -1) resultList.Add(MoveDirection.Right);
-				if (points[i].X - points[i - 1].X == 1) resultList.Add(MoveDirection.Left);
-				if (points[i].Y - points[i - 1].Y == 1) resultList.Add(MoveDirection.Up);
-				if (points[i].Y - points[i - 1].Y == -1) resultList.Add(MoveDirection.Down);
+				if (points[i].Y - points[i - 1].Y == 1) directions.Add(MoveDirection.Up);
+				if (points[i].Y - points[i - 1].Y == -1) directions.Add(MoveDirection.Down);
+				if (points[i].X - points[i - 1].X == -1) directions.Add(MoveDirection.Right);
+				if (points[i].X - points[i - 1].X == 1) directions.Add(MoveDirection.Left);
 			}
-			return resultList.ToArray();
+			return directions.ToArray();
 		}
 	}
 }
