@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace Rivals
 {
@@ -12,37 +13,54 @@ namespace Rivals
     {
         public static IEnumerable<OwnedLocation> AssignOwners(Map map)
         {
-            var queue = new Queue<Tuple<Point, int, int>>();
-            var visited = new bool[map.Maze.GetLength(0), map.Maze.GetLength(1)];
+            var queue = new Queue<Player>();
+            var visited = new List<Point>();
             for (int i = 0; i < map.Players.Length; i++)
             {
-                queue.Enqueue(Tuple.Create(map.Players[i], i, 0));
-                visited[map.Players[i].X, map.Players[i].Y] = true;
+                visited.Add(map.Players[i]);
+                queue.Enqueue(new Player(i,map.Players[i],0));
             }
             while (queue.Count != 0)
             {
-                var playerInfo = queue.Dequeue();
-                var playerPoint = playerInfo.Item1;
-                for (var dx = -1; dx <= 1; dx++)
-                    for (var dy = -1; dy <= 1; dy++)
-                    {
-                        var nextPoint = new Point(playerPoint.X + dx, playerPoint.Y + dy);
-                        if (Math.Abs(dx + dy) == 1 && map.IsValidPoint(nextPoint) && !visited[nextPoint.X,nextPoint.Y])
-                        { 
-                           queue.Enqueue(Tuple.Create(nextPoint, playerInfo.Item2, playerInfo.Item3 + 1));
-                           visited[nextPoint.X, nextPoint.Y] = true;
-                        }
-                    }
-                yield return new OwnedLocation(playerInfo.Item2, playerPoint, playerInfo.Item3);
+                var currentPlayer = queue.Dequeue();
+                foreach (var nextPoint in currentPlayer.CurrentPoint.GetNeighbours())
+                {
+                    if (map.ApplyPoint(nextPoint) && !visited.Contains(nextPoint))
+                        queue.Enqueue(new Player(currentPlayer.Number,nextPoint,currentPlayer.CurrentLength+1));
+                    visited.Add(nextPoint);
+                }
+                yield return new OwnedLocation(currentPlayer.Number, currentPlayer.CurrentPoint, currentPlayer.CurrentLength);
             }
+        }
+    }
+
+    public class Player
+    {
+        public int Number ;
+        public Point CurrentPoint;
+        public int CurrentLength;
+
+        public Player(int number, Point currentPoint, int currentLength)
+        {
+            Number = number;
+            CurrentPoint = currentPoint;
+            CurrentLength = currentLength;
         }
     }
 
     public static class Extensions
     {
-        public static bool IsValidPoint(this Map map, Point point) =>
-                    point.X >= 0 && point.X < map.Maze.GetLength(0)
-                    && point.Y >= 0 && point.Y < map.Maze.GetLength(1)
-                    && map.Maze[point.X, point.Y] != MapCell.Wall;
+        public static IEnumerable<Point> GetNeighbours(this Point point)
+        {
+            yield return new Point(point.X + 1, point.Y);
+            yield return new Point(point.X - 1, point.Y);
+            yield return new Point(point.X, point.Y+ 1);
+            yield return new Point(point.X , point.Y-1);
+        }
+        public static bool ApplyPoint(this Map map, Point point)
+        {
+            return  map.InBounds(point) && map.Maze[point.X, point.Y] != MapCell.Wall;
+        }
+                    
     }
 }

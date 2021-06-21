@@ -13,16 +13,16 @@ namespace Dungeon
 	{
 		public static MoveDirection[] FindShortestPath(Map map)
 		{
+			var fromstartToExit = BfsTask.FindPaths(map, map.InitialPosition, new[] { map.Exit }).FirstOrDefault();
+			if (fromstartToExit == null)
+				return new MoveDirection[0];
 			var pathToExit = BfsTask.FindPaths(map, map.Exit, map.Chests);
 			var pathFromStart = BfsTask.FindPaths(map, map.InitialPosition, map.Chests);
 			var resultWays = pathFromStart.SelectMany(pfs =>
 				pathToExit.Where(pte => pte.Value == pfs.Value).Select(pte => pte.Reverse().Concat(pfs)));
 			var result = resultWays.OrderBy(way => way.Count()).FirstOrDefault();
 			if (result is null)
-			{
-				var fromstartToExit = BfsTask.FindPaths(map, map.InitialPosition, new[] { map.Exit }).FirstOrDefault();
-				return fromstartToExit is null ? new MoveDirection[0] : fromstartToExit.ToArray().ToMoveDirections();
-			}
+				return fromstartToExit.ToArray().ToMoveDirections();
 			return result.ToArray().ToMoveDirections();
 		}
 	}
