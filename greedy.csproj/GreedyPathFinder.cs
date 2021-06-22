@@ -10,21 +10,26 @@ namespace Greedy
 	{
 		public List<Point> FindPathToCompleteGoal(State state)
 		{
-			var amountOfPickedChests = 0;
-			var finalPath = new PathWithCost(0);
-			if (state.Chests.Count < state.Goal)
-				return new List<Point>();
-			while (state.Goal > amountOfPickedChests )
+			if (state.Chests.Count >= state.Goal)
 			{
-				var path = new DijkstraPathFinder().GetPathsByDijkstra(state, state.Position, state.Chests).FirstOrDefault();
-				if (path == null || path.Cost > state.Energy)
-				{ break; }
-				state.Position = path.End;
-				finalPath = new PathWithCost(path.Cost, finalPath.Path.Concat(path.Path.Skip(1)).ToArray());
-				state.Chests.Remove(state.Position);
-				amountOfPickedChests++;
+				var resultPath = new PathWithCost(0);
+				var collectedChests = 0;
+				while (collectedChests < state.Goal)
+				{
+					var path = new DijkstraPathFinder().GetPathsByDijkstra(state, state.Position, state.Chests)
+						.FirstOrDefault();
+					if (path == null || path.Cost > state.Energy)
+					{
+						break;
+					}
+					resultPath = new PathWithCost(path.Cost, resultPath.Path.Concat(path.Path.Skip(1)).ToArray());
+					state.Position = path.End;
+					state.Chests.Remove(path.End);
+					collectedChests++;
+				}
+				return resultPath.Path;
 			}
-			return finalPath.Path;
+			return new List<Point>(); 
 		}
 	}
 }

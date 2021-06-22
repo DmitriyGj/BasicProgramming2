@@ -13,38 +13,48 @@ namespace Rivals
     {
         public static IEnumerable<OwnedLocation> AssignOwners(Map map)
         {
-            var queue = new Queue<Player>();
-            var visited = new List<Point>();
+            var queue = new LinkedList<PlayerInfo>();
+            var visited = new bool[map.Maze.GetLength(0),map.Maze.GetLength(1)];
             for (int i = 0; i < map.Players.Length; i++)
             {
-                visited.Add(map.Players[i]);
-                queue.Enqueue(new Player(i,map.Players[i],0));
+                visited[map.Players[i].X,map.Players[i].Y] = true;
+                queue.AddLast(new PlayerInfo(i,map.Players[i],0));
             }
             while (queue.Count != 0)
             {
-                var currentPlayer = queue.Dequeue();
-                foreach (var nextPoint in currentPlayer.CurrentPoint.GetNeighbours())
+                var currentPlayerInfo = queue.First();
+                yield return currentPlayerInfo.ToOwnedLocation();
+                foreach (var point in currentPlayerInfo.Location.GetNeighbours())
                 {
-                    if (map.ApplyPoint(nextPoint) && !visited.Contains(nextPoint))
-                        queue.Enqueue(new Player(currentPlayer.Number,nextPoint,currentPlayer.CurrentLength+1));
-                    visited.Add(nextPoint);
+                    if (map.ApplyPoint(point) && !visited[point.X, point.Y])
+                    {
+                        queue.AddLast(new PlayerInfo(currentPlayerInfo.Number, 
+                            point, 
+                            currentPlayerInfo.PathLength + 1));
+                        visited[point.X, point.Y] = true;
+                    }
                 }
-                yield return new OwnedLocation(currentPlayer.Number, currentPlayer.CurrentPoint, currentPlayer.CurrentLength);
+                queue.RemoveFirst();
             }
         }
     }
 
-    public class Player
+    public class PlayerInfo
     {
         public int Number ;
-        public Point CurrentPoint;
-        public int CurrentLength;
+        public Point Location;
+        public int PathLength;
 
-        public Player(int number, Point currentPoint, int currentLength)
+        public PlayerInfo(int number, Point currentPoint, int currentLength)
         {
             Number = number;
-            CurrentPoint = currentPoint;
-            CurrentLength = currentLength;
+            Location = currentPoint;
+            PathLength = currentLength;
+        }
+
+        public OwnedLocation ToOwnedLocation()
+        {
+            return new OwnedLocation(Number,Location,PathLength);
         }
     }
 
