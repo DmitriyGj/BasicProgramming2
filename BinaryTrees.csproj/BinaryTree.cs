@@ -1,53 +1,43 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace BinaryTrees
 {
-    public class BinaryTree<TValue> : IEnumerable<TValue> where TValue : IComparable
+    public class BinaryTree<T> : IEnumerable<T> where T : IComparable
     {
-        public BinaryTree<TValue> Right, Left;
-        public TValue Value;
-        public bool IsRoot { get => Height > 0; }
+        public T Value;
+        public bool IsNotNULL = false;
         public int Height { get; private set; }
+        public BinaryTree<T> Right, Left;
 
-
-        public BinaryTree(TValue value)
+        public void Add(T value)
         {
-            Value = value;
-            Height = 1;
-        }
-
-        public BinaryTree()
-        {
-            Height = 0;
-        }
-
-        public void Add(TValue value)
-        {
-            if (!IsRoot)
+            if (!IsNotNULL)
+            {
                 Value = value;
+                IsNotNULL = true;
+            }
             else if (Value.CompareTo(value) >= 0)
             {
                 if (Left is null)
-                    Left = new BinaryTree<TValue>();
+                    Left = new BinaryTree<T>();
                 Left.Add(value);
             }
             else
             {
                 if (Right is null)
-                    Right = new BinaryTree<TValue>();
+                    Right = new BinaryTree<T>();
                 Right.Add(value);
             }
+
             Height++;
         }
 
-        public bool Contains(TValue node)
+        public bool Contains(T node)
         {
-            if (!IsRoot)
+            if (!IsNotNULL)
                 return false;
             if (Value.Equals(node))
                 return true;
@@ -57,20 +47,16 @@ namespace BinaryTrees
             return false;
         }
 
-        public IEnumerator<TValue> GetEnumerator()
-        {
-            if (IsRoot)
-            {
-                if (Left != null)
-                    foreach (var value in Left)
-                        yield return value;
-
+        public IEnumerator<T> GetEnumerator()
+        { 
+            if (Left != null) 
+                foreach (var value in Left) 
+                    yield return value;
+            if (IsNotNULL) 
                 yield return Value;
-
-                if (Right != null)
-                    foreach (var value in Right)
-                        yield return value;
-            }
+            if (Right != null)
+                foreach (var value in Right)
+                    yield return value;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -78,22 +64,27 @@ namespace BinaryTrees
             return GetEnumerator();
         }
 
-        public TValue this[int index]
+        public T this[int index]
         {
             get
             {
-                if (!IsRoot || index < 0 || index >= Height)
-                    throw new IndexOutOfRangeException();
-                return GetValue(this, index);
+                if (!IsNotNULL || index < 0 || index >= Height)
+                    throw new AggregateException();
+                var current = this;
+                int ind = index;
+                while (true)
+                {
+                    if (current.Left != null && ind < current.Left.Height)
+                        current = current.Left;
+                    else 
+                    {
+                        if (current.Left != null && ind == current.Left.Height)
+                            return current.Value;
+                        ind -= current.Left.Height ;
+                        current = current.Right;
+                    }
+                }
             }
-        }
-        TValue GetValue(BinaryTree<TValue> tree, int index)
-        {
-            if (!(tree?.Left is null) &&   index < tree?.Left.Height)
-                return GetValue(tree.Left,index);
-            if (!(tree?.Right is null) && index > tree?.Height - tree.Right.Height-1 )
-                return GetValue(tree.Right, index - tree.Height + tree.Right.Height);
-            return tree.Value;
         }
     }
 }
