@@ -10,30 +10,30 @@ namespace Antiplagiarism
     {
         public List<ComparisonResult> CompareDocumentsPairwise(List<DocumentTokens> documents)
         {
-            var res = new List<ComparisonResult>();
-            for (int i = 0; i < documents.Count; i++)
-                for (int j = i+1; j < documents.Count; j++)
-                    res.Add(new ComparisonResult(documents[i], 
-                                                 documents[j], 
-                                                 GetDocDistance(documents[i], documents[j])));
-            return res;
+            var comparisonResults = new List<ComparisonResult>();
+            for (int i = 0; i != documents.Count; i++)
+                for (int j = i + 1; j != documents.Count; j++)
+                {
+                    var result = new ComparisonResult(documents[i],documents[j],
+                        GetDifference(documents[i], documents[j]));
+                    comparisonResults.Add(result);
+                }
+            return comparisonResults;
         }
 
-        public double GetDocDistance(DocumentTokens first, DocumentTokens second)
+        private double GetDifference(DocumentTokens word1, DocumentTokens word2)
         {
-            var length = new Tuple<int,int>(first.Count+1,second.Count+1);
-            var opt = new double[length.Item1, length.Item2];
-            for (int i = 0; i != length.Item1; i++) 
+            var opt = new double[word1.Count+1, word2.Count+1];
+            for (int i = 0; i <= word1.Count; i++) 
                 opt[i, 0] = i;
-            for (int i = 0; i != length.Item2; i++) 
-                opt[0, i] = i;
-            for (int i = 1; i != length.Item1; i++)
-                for(int j = 1; j != length.Item2; j++)
-                {
-                    var distance = TokenDistanceCalculator.GetTokenDistance(first[i - 1], second[j - 1]);
-                    opt[i, j] = new[]{opt[i , j - 1]+1, opt[i - 1, j ]+1,  opt[i - 1, j - 1 ] + distance}.Min();
-                }
-            return opt[first.Count, second.Count];
+            for (int j = 0; j <= word2.Count; j++) 
+                opt[0, j] = j;
+            for (int i = 1; i <= word1.Count; i++)
+                for(int j = 1; j <= word2.Count; j++)
+                    opt[i, j] = Math.Min(opt[i-1,j-1]+
+                                         TokenDistanceCalculator.GetTokenDistance(word1[i - 1], word2[j - 1]),
+                        Math.Min(opt[i-1,j]+1,opt[i,j-1]+1));
+            return opt[word1.Count, word2.Count];
         }
     }
 }
